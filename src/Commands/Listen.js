@@ -4,9 +4,7 @@ const { Command } = require('@adonisjs/ace')
 
 class Listen extends Command {
   static get inject () {
-    return [
-      'Adonis/Addons/Kue'
-    ]
+    return ['Adonis/Addons/Kue']
   }
 
   constructor (Kue) {
@@ -15,15 +13,16 @@ class Listen extends Command {
   }
 
   static get signature () {
-    return 'kue:listen'
+    return 'kue:listen { --dashboard: Setup dashboard }'
   }
 
   static get description () {
     return 'Start the kue listener.'
   }
 
-  handle () {
-    return this.Kue.listen()
+  handle (args, flags) {
+    console.log(flags)
+    this.Kue.listen()
   }
 }
 

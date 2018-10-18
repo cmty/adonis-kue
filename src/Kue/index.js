@@ -1,6 +1,8 @@
 'use strict'
 
 const kue = require('kue')
+const express = require('express') // Dependency of kue
+const basicAuth = require('express-basic-auth')
 const { ioc } = require('@adonisjs/fold')
 
 /**
@@ -133,6 +135,24 @@ class Kue {
       })
     })
     this.Logger.info(`kue worker listening for ${this.registeredJobs.length} job(s)`)
+  }
+
+  /**
+   * Start dashboard
+   *
+   * @public
+   */
+  dashboard () {
+    const app = express()
+    const config = this.config.dashboard || {}
+    const port = config.port || 3000
+
+    if (config.basicAuth) {
+      app.use(basicAuth(config.basicAuth))
+    }
+    app.use(kue.app)
+    app.listen(port)
+    this.Logger.info(`Kue dashboard listening on http://localhost:${port}`)
   }
 }
 
