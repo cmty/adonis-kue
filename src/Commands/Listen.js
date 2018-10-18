@@ -21,8 +21,10 @@ class Listen extends Command {
   }
 
   handle (args, flags) {
-    console.log(flags)
     this.Kue.listen()
+    if (flags.dashboard) {
+      this.Kue.dashboard()
+    }
   }
 }
 

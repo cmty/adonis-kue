@@ -153,7 +153,9 @@ class Kue {
     app.use(kue.app)
     app.listen(port)
     this.Logger.info(`Kue dashboard listening on http://localhost:${port}`)
-  }
+    if (config.basicAuth) {
+      this.Logger.info(`Basic auth activated on dashboard`)
+    }
 }
 
 module.exports = Kue
