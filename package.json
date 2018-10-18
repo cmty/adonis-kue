@@ -1,6 +1,6 @@
 {
   "name": "adonis-kue",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Kue provider for the Adonis framework",
   "main": "src/Kue/index.js",
   "directories": {
