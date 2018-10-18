@@ -54,7 +54,14 @@ const Env = use('Env')
 
 module.exports = {
   // redis connection
-  connection: Env.get('KUE_CONNECTION', 'kue')
+  connection: Env.get('KUE_CONNECTION', 'kue'),
+  // dashboard settings
+  // Only used when running `adonis kue:listen --dashboard`
+  dashboard: {
+    port: Env.get('KUE_DASHBOARD_PORT', 3000),
+    // Basic Auth Config, see https://github.com/LionC/express-basic-auth#readme
+    basicAuth: false
+  }
 }
 ```
 
