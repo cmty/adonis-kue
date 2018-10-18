@@ -156,6 +156,7 @@ class Kue {
     if (config.basicAuth) {
       this.Logger.info(`Basic auth activated on dashboard`)
     }
+  }
 }
 
 module.exports = Kue
