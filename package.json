@@ -24,7 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "boxen": "^2.0.0",
-    "express-basic-auth": "^1.1.5",
+    "express-basic-auth": "^1.2.0",
     "kue": "^0.11.6",
     "lodash": "^4.17.11"
   },
@@ -38,7 +38,7 @@
     "coveralls": "^3.0.2",
     "dotenv": "^6.1.0",
     "husky": "^1.1.2",
-    "japa": "^2.0.5",
+    "japa": "^2.0.10",
     "japa-cli": "^1.0.1",
     "lint-staged": "^7.3.0",
     "nyc": "^13.1.0",
