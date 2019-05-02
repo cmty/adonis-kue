@@ -59,6 +59,7 @@ module.exports = {
   // Only used when running `adonis kue:listen --dashboard`
   dashboard: {
     port: Env.get('KUE_DASHBOARD_PORT', 3000),
+    host: Env.get('KUE_DASHBOARD_HOST', '0.0.0.0'),
     // Basic Auth Config, see https://github.com/LionC/express-basic-auth#readme
     basicAuth: false
   }

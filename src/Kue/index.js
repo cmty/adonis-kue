@@ -146,13 +146,14 @@ class Kue {
     const app = express()
     const config = this.config.dashboard || {}
     const port = config.port || 3000
+    const host = config.host || 'localhost'
 
     if (config.basicAuth) {
       app.use(basicAuth(config.basicAuth))
     }
     app.use(kue.app)
-    app.listen(port)
-    this.Logger.info(`Kue dashboard listening on http://localhost:${port}`)
+    app.listen(port, host)
+    this.Logger.info(`Kue dashboard listening on http://${host}:${port}`)
     if (config.basicAuth) {
       this.Logger.info(`Basic auth activated on dashboard`)
     }
