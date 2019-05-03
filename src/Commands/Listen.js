@@ -2,6 +2,8 @@
 
 const { Command } = require('@adonisjs/ace')
 
+const Logger = use('Logger')
+
 class Listen extends Command {
   static get inject () {
     return ['Adonis/Addons/Kue']
@@ -22,6 +24,11 @@ class Listen extends Command {
 
   handle (args, flags) {
     this.Kue.listen()
+    // Catch error from ioredis/redis
+    this.Kue._instance.on('error', (error) => {
+      Logger.info('redis connection error: ', error)
+    })
+
     if (flags.dashboard) {
       this.Kue.dashboard()
     }
